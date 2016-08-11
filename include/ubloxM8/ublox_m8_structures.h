@@ -1,15 +1,13 @@
 // uBlox M8 UBX Data Structures
 #ifndef UBLOXM8STRUCTURES_H
-#define UBLOXM8STRUCTURES_H// uBlox M8 UBX Data Structures
-#ifndef UBLOXM8STRUCTURES_H
 #define UBLOXM8STRUCTURES_H
 
 #include "stdint.h"
 
 namespace ublox_m8 {
 
-#define MAX_NOUT_SIZE      (5000)   // Maximum size of a uBlox log buffer (ALMANAC logs are big!)
-#define MAXCHAN		50  // Maximum number of signal channels
+#define MAX_NOUT_SIZE (5000)   // Maximum size of a uBlox log buffer (ALMANAC logs are big!)
+#define MAXCHAN 50  // Maximum number of signal channels
 #define MAX_GPS_SATS 32
 #define MAX_SAT 100        // Maximum number of SVs for all GNSS constellations
 #define MAX_NUM_SOURCES 5
@@ -28,6 +26,45 @@ namespace ublox_m8 {
 #define UBX_SYNC_BYTE_2 0x62
 
 //! UBX Protocol Class/Message ID's
+#define MSG_CLASS_NAV 0x01
+	#define MSG_ID_NAV_AOPSTATUS 0x60
+	#define MSG_ID_NAV_CLOCK 0x22
+	#define MSG_ID_NAV_DGPS 0x31
+	#define MSG_ID_NAV_DOP 0x04
+	#define MSG_ID_NAV_EOE 0x61
+	#define MSG_ID_NAV_GEOFENCE 0x39
+	#define MSG_ID_NAV_ODO 0x09
+	#define MSG_ID_NAV_ORB 0x34
+	#define MSG_ID_NAV_POSECEF 0x01
+	#define MSG_ID_NAV_POSLLH 0x02
+	#define MSG_ID_NAV_PVT 0x07
+	#define MSG_ID_NAV_RESETODO 0x10
+	#define MSG_ID_NAV_SAT 0x35
+	#define MSG_ID_NAV_SBAS 0x32
+	#define MSG_ID_NAV_SOL 0x06
+	#define MSG_ID_NAV_STATUS 0x03
+	#define MSG_ID_NAV_SVINFO 0x30
+	#define MSG_ID_NAV_TIMEBDS 0x24
+	#define MSG_ID_NAV_TIMEGAL 0x25
+	#define MSG_ID_NAV_TIMEGLO 0x23
+	#define MSG_ID_NAV_TIMEGPS 0x20
+	#define MSG_ID_NAV_TIMELS 0x26
+	#define MSG_ID_NAV_TIMEUTC 0x21
+	#define MSG_ID_NAV_VELECEF 0x11
+	#define MSG_ID_NAV_VELNED 0x12
+#define MSG_CLASS_RXM 0x02
+	#define MSG_ID_RXM_IMES 0x61
+	#define MSG_ID_RXM_PMREQ 0x41
+	#define MSG_ID_RXM_RAWX 0x15
+	#define MSG_ID_RXM_RLM 0x59
+	#define MSG_ID_RXM_SFRBX 0x13
+	#define MSG_ID_RXM_SVSI 0x20
+#define MSG_CLASS_INF 0x04
+	#define MSG_ID_INF_DEBUG 0x04
+	#define MSG_ID_INF_ERROR 0x00
+	#define MSG_ID_INF_NOTICE 0x02
+	#define MSG_ID_INF_TEST 0x03
+	#define MSG_ID_INF_WARNING 0x01
 #define MSG_CLASS_ACK 0X05
     #define MSG_ID_ACK_ACK 0x01
     #define MSG_ID_ACK_NAK 0x00
@@ -62,12 +99,67 @@ namespace ublox_m8 {
     #define MSG_ID_CFG_TP5 0x31
     #define MSG_ID_CFG_TXSLOT 0x53
     #define MSG_ID_CFG_USB 0x1B
-#define MSG_CLASS_INF 0x04
-    #define MSG_ID_INF_DEBUG 0x04
-    #define MSG_ID_INF_ERROR 0x00
-    #define MSG_ID_INF_NOTICE 0x02
-    #define MSG_ID_INF_TEST 0x03
-    #define MSG_ID_INF_WARNING 0x01
+#define MSG_CLASS_UPD 0x09
+	#define MSG_ID_UPD_SOS 0x14
+#define MSG_CLASS_MON 0x0A
+	#define MSG_ID_MON_GNSS 0x28
+	#define MSG_ID_MON_HW2 0x0B
+	#define MSG_ID_MON_HW 0x09
+	#define MSG_ID_MON_IO 0x02
+	#define MSG_ID_MON_MSGPP 0x06
+	#define MSG_ID_MON_PATCH 0x27
+	#define MSG_ID_MON_RXBUF 0x07
+	#define MSG_ID_MON_RXR 0x21
+	#define MSG_ID_MON_SMGR 0x2E
+	#define MSG_ID_MON_TXBUF 0X08
+	#define MSG_ID_MON_VER 0x04
+#define MSG_CLASS_AID 0x0B
+#define MSG_CLASS_TIM 0x0D
+	#define MSG_ID_TIM_DOSC 0x11
+	#define MSG_ID_TIM_FCHG 0x16
+	#define MSG_ID_TIM_HOC 0x17
+	#define MSG_ID_TIM_SMEAS 0x13
+	#define MSG_ID_TIM_SVIN 0x04
+	#define MSG_ID_TIM_TM2 0x03
+	#define MSG_ID_TIM_TOS 0x12
+	#define MSG_ID_TIM_TP 0x01
+	#define MSG_ID_TIM_VCOCAL 0x15
+	#define MSG_ID_TIM_VRFY 0x06
+#define MSG_CLASS_ESF 0x10
+#define MSG_CLASS_MGA 0x13
+	#define MSG_ID_MGA_ACK 0x60
+	#define MSG_ID_MGA_ANO 0x20
+	#define MSG_ID_MGA_DBD 0x80
+	#define MSG_ID_MGA_FLASH_DATA 0x21
+	#define MSG_ID_MGA_FLASH_STOP 0x21
+	#define MSG_ID_MGA_FLASH 0x21
+	#define MSG_ID_MGA_GAL_EPH 0x02
+	#define MSG_ID_MGA_GAL_ALM 0x02
+	#define MSG_ID_MGA_GAL_TIMEOFFSET 0x02
+	#define MSG_ID_MGA_GAL_UTC 0x02
+	#define MSG_ID_MGA_GLO_EPH 0x06
+	#define MSG_ID_MGA_GLO_ALM 0x06
+	#define MSG_ID_MGA_GLO_TIMEOFFSET 0x06
+	#define MSG_ID_MGA_GPS_EPH 0x00
+	#define MSG_ID_MGA_GPS_ALM 0x00
+	#define MSG_ID_MGA_GPS_UTC 0x00
+	#define MSG_ID_MGA_GPS_IONO 0x00
+	#define MSG_ID_MGA_INI_POS_XYZ 0x40
+	#define MSG_ID_MGA_INI_POS_LLH 0x40
+	#define MSG_ID_MGA_INI_TIME_UTC 0x40
+	#define MSG_ID_MGA_INI_TIME_GNSS 0x40
+	#define MSG_ID_MGA_INI_CLKD 0x40
+	#define MSG_ID_MGA_INI_FREQ 0x40
+	#define MSG_ID_MGA_INI_EOP 0x40
+	#define MSG_ID_MGA_QZSS_EPH 0x05
+	#define MSG_ID_MGA_QZSS_ALM 0x05
+	#define MSG_ID_MGA_QZSS_HEALTH 0x05
+	//Leaving for backward compatability
+	#define MSG_ID_MGA_FLASH 0x21
+	#define MSG_ID_MGA_GLO 0x06
+	#define MSG_ID_MGA_GPS 0x00
+	#define MSG_ID_MGA_INI 0x40
+	#define MSG_ID_MGA_QZSS 0x05
 #define MSG_CLASS_LOG 0x21
     #define MSG_ID_LOG_CREATE 0x07
     #define MSG_ID_LOG_ERASE 0x03
@@ -78,101 +170,10 @@ namespace ublox_m8 {
     #define MSG_ID_LOG_RETRIEVESTRING 0x0d
     #define MSG_ID_LOG_RETRIEVE 0x09
     #define MSG_ID_LOG_STRING 0x04
-#define MSG_CLASS_MGA 0x13
-    #define MSG_ID_MGA_ACK 0x60
-    #define MSG_ID_MGA_ANO 0x20
-    #define MSG_ID_MGA_DBD 0x80
-    #define MSG_ID_MGA_FLASH_DATA 0x21
-    #define MSG_ID_MGA_FLASH_STOP 0x21
-    #define MSG_ID_MGA_FLASH 0x21
-    #define MSG_ID_MGA_GAL_EPH 0x02
-    #define MSG_ID_MGA_GAL_ALM 0x02
-    #define MSG_ID_MGA_GAL_TIMEOFFSET 0x02
-    #define MSG_ID_MGA_GAL_UTC 0x02
-    #define MSG_ID_MGA_GLO_EPH 0x06
-    #define MSG_ID_MGA_GLO_ALM 0x06
-    #define MSG_ID_MGA_GLO_TIMEOFFSET 0x06
-    #define MSG_ID_MGA_GPS_EPH 0x00
-    #define MSG_ID_MGA_GPS_ALM 0x00
-    #define MSG_ID_MGA_GPS_UTC 0x00
-    #define MSG_ID_MGA_GPS_IONO 0x00
-    #define MSG_ID_MGA_INI_POS_XYZ 0x40
-    #define MSG_ID_MGA_INI_POS_LLH 0x40
-    #define MSG_ID_MGA_INI_TIME_UTC 0x40
-    #define MSG_ID_MGA_INI_TIME_GNSS 0x40
-    #define MSG_ID_MGA_INI_CLKD 0x40
-    #define MSG_ID_MGA_INI_FREQ 0x40
-    #define MSG_ID_MGA_INI_EOP 0x40
-    #define MSG_ID_MGA_QZSS_EPH 0x05
-    #define MSG_ID_MGA_QZSS_ALM 0x05
-    #define MSG_ID_MGA_QZSS_HEALTH 0x05
-    //Leaving for backward compatability
-    #define MSG_ID_MGA_FLASH 0x21
-    #define MSG_ID_MGA_GLO 0x06
-    #define MSG_ID_MGA_GPS 0x00
-    #define MSG_ID_MGA_INI 0x40
-    #define MSG_ID_MGA_QZSS 0x05
-#define MSG_CLASS_MON 0x0A
-    #define MSG_ID_MON_GNSS 0x28
-    #define MSG_ID_MON_HW2 0x0B
-    #define MSG_ID_MON_HW 0x09
-    #define MSG_ID_MON_IO 0x02
-    #define MSG_ID_MON_MSGPP 0x06
-    #define MSG_ID_MON_PATCH 0x27
-    #define MSG_ID_MON_RXBUF 0x07
-    #define MSG_ID_MON_RXR 0x21
-    #define MSG_ID_MON_SMGR 0x2E
-    #define MSG_ID_MON_TXBUF 0X08
-    #define MSG_ID_MON_VER 0x04
-#define MSG_CLASS_NAV 0x01
-    #define MSG_ID_NAV_AOPSTATUS 0x60
-    #define MSG_ID_NAV_CLOCK 0x22
-    #define MSG_ID_NAV_DGPS 0x31
-    #define MSG_ID_NAV_DOP 0x04
-    #define MSG_ID_NAV_EOE 0x61
-    #define MSG_ID_NAV_GEOFENCE 0x39
-    #define MSG_ID_NAV_ODO 0x09
-    #define MSG_ID_NAV_ORB 0x34
-    #define MSG_ID_NAV_POSECEF 0x01
-    #define MSG_ID_NAV_POSLLH 0x02
-    #define MSG_ID_NAV_PVT 0x07
-    #define MSG_ID_NAV_RESETODO 0x10
-    #define MSG_ID_NAV_SAT 0x35
-    #define MSG_ID_NAV_SBAS 0x32
-    #define MSG_ID_NAV_SOL 0x06
-    #define MSG_ID_NAV_STATUS 0x03
-    #define MSG_ID_NAV_SVINFO 0x30
-    #define MSG_ID_NAV_TIMEBDS 0x24
-    #define MSG_ID_NAV_TIMEGAL 0x25
-    #define MSG_ID_NAV_TIMEGLO 0x23
-    #define MSG_ID_NAV_TIMEGPS 0x20
-    #define MSG_ID_NAV_TIMELS 0x26
-    #define MSG_ID_NAV_TIMEUTC 0x21
-    #define MSG_ID_NAV_VELECEF 0x11
-    #define MSG_ID_NAV_VELNED 0x12
-#define MSG_CLASS_RXM 0x02
-    #define MSG_ID_RXM_IMES 0x61
-    #define MSG_ID_RXM_PMREQ 0x41
-    #define MSG_ID_RXM_RAWX 0x15
-    #define MSG_ID_RXM_RLM 0x59
-    #define MSG_ID_RXM_SFRBX 0x13
-    #define MSG_ID_RXM_SVSI 0x20
 #define MSG_CLASS_SEC 0x27
     #define MSG_ID_SEC_SIGN 0x01
     #define MSG_ID_SEC_UNIQID 0x03
-#define MSG_CLASS_TIM 0x0D
-    #define MSG_ID_TIM_DOSC 0x11
-    #define MSG_ID_TIM_FCHG 0x16
-    #define MSG_ID_TIM_HOC 0x17
-    #define MSG_ID_TIM_SMEAS 0x13
-    #define MSG_ID_TIM_SVIN 0x04
-    #define MSG_ID_TIM_TM2 0x03
-    #define MSG_ID_TIM_TOS 0x12
-    #define MSG_ID_TIM_TP 0x01
-    #define MSG_ID_TIM_VCOCAL 0x15
-    #define MSG_ID_TIM_VRFY 0x06
-#define MSG_CLASS_UPD 0x09
-    #define MSG_ID_UPD_SOS 0x14
+#define MSG_CLASS_HNR 0x28
 
     PACK(
             struct UbloxHeader {

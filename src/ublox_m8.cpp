@@ -643,7 +643,7 @@ bool UbloxM8::SetCfgNav5(uint8_t dynamic_model, uint8_t fix_mode){
 		message.header.message_id = MSG_ID_CFG_NAV5;
 		message.header.payload_length = 36;
 
-		message.mask = 0b00000101;
+		message.mask = 0x5;
 		message.dynamic_model = dynamic_model;
 		message.fix_mode = fix_mode;
 		message.fixed_altitude = 0;

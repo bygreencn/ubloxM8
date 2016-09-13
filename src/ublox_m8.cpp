@@ -971,7 +971,7 @@ void UbloxM8::ParseLog(uint8_t *log, size_t logID) {
 				nav_time_gps_callback_(cur_nav_gps_time, read_timestamp_);
 			break;
 
-		case NAV_UTCTIME:
+		case NAV_TIMEUTC:
             ublox_m8::NavTimeUTC cur_nav_utc_time;
 			payload_length = (((uint16_t) *(log+5)) << 8) + ((uint16_t) *(log+4));
 			memcpy(&cur_nav_utc_time, log, payload_length+HDR_CHKSM_LENGTH);
